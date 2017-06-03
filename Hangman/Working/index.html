@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <title>Guess the word</title>
+    <link rel="stylesheet" type="text/css" href="assets/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <link rel="stylesheet" type="text/javascript" href="assets/style.js">
+    <!--  -->
+</head>
+
+<body>
+    <h1>Guess the word!</h1>
+    <h2>Use your keyboard to guess the name of a tropical fruit.</h2>
+    <h2 id="fruitName"></h2>
+    <p id="score"></p>
+    <button onclick="hint()">Hint</button>
+    <p id="hintLetter"></p>
+    <button onclick="newWord()">New word</button>
+    <p id="noLetter">Letters not in word:</p>
+    <p id="noLetter"></p>
+    <img src="assets/fruit.jpg" alt="fruit">
+    <footer>
+        &copy; Copyright 2017 Sharon Oud
+    </footer>
+
+
+<script type="text/javascript">
+// Hangman game to guess the word
+
+//Words available
+var tropicalArray = ["mango", "sapodilla", "starfruit", "banana", "lychee", "longan", "mangosteen", "guava", "avocado", "jackfruit", "jaboticaba", "dates"];
+
+
+// New game button
+var score = 0;
+var userLetter = [];
+
+
+
+// Choose random word from tropicalArray
+var randomWord = tropicalArray[Math.floor(Math.random() * tropicalArray.length)]
+
+console.log(randomWord);
+
+// how many letter in picked word
+var numOfLetters = (randomWord.length);
+console.log(numOfLetters);
+
+// _ for each letter
+var letter = "_ ";
+var placeholder = letter.repeat(numOfLetters);
+document.getElementById("fruitName").innerHTML = "Fruit name:  " + placeholder;
+console.log(placeholder);
+
+//capture letter from keyboard, make var userLetter
+document.addEventListener("keypress", function(userLetter) {
+    console.log(String.fromCharCode(userLetter.charCode));
+
+})
+
+</script>
+</body>
+
+</html>
